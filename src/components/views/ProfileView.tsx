@@ -29,7 +29,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
   return (
     <div className="h-full flex flex-col bg-[#0f1114] select-none">
       {/* Header */}
-      <div className="h-16 px-4 flex items-center justify-between border-b border-white/5 shrink-0">
+      <div className="h-16 px-4 flex items-center justify-between border-b border-[#202230] shrink-0">
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
@@ -52,7 +52,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
       {/* Main Content */}
       <div className="flex-1 scr p-5 space-y-6 max-w-xl mx-auto w-full">
         {/* Profile Hero */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 p-5 rounded-2xl bg-[#14161a] border border-white/5">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 p-5 rounded-2xl bg-[#14161a] border border-[#232536]">
           <Avatar
             name={currentUser.name}
             size={88}
@@ -88,7 +88,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
           <label className="text-xs font-semibold text-white/50 uppercase tracking-wider block">
             Account Details
           </label>
-          <div className="rounded-2xl bg-[#14161a] border border-white/5 divide-y divide-white/5 text-xs">
+          <div className="rounded-2xl bg-[#14161a] border border-[#232536] divide-y divide-[#232536] text-xs">
             <div className="flex items-center justify-between p-3.5">
               <span className="flex items-center gap-2.5 text-white/60">
                 <AtSign className="w-4 h-4 text-white/40" />
@@ -113,7 +113,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
               <button
                 type="button"
                 onClick={onToggleVisibility}
-                className="text-xs font-semibold text-[#38bdf8] hover:underline cursor-pointer"
+                className="text-xs font-semibold text-[#caa6fc] hover:underline cursor-pointer"
               >
                 {currentUser.vis ? 'Visible to everyone' : 'Hidden'}
               </button>

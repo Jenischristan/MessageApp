@@ -64,13 +64,13 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
   return (
     <nav
       aria-label="Primary navigation"
-      className="hidden md:flex flex-col items-center w-[74px] bg-[#0c0d10] py-5 gap-2.5 shrink-0 border-r border-white/8 select-none z-30"
+      className="hidden md:flex flex-col items-center w-[74px] bg-[#0c0d10] py-5 gap-2.5 shrink-0 border-r border-[#222432] select-none z-30"
     >
       {/* Brand Icon */}
       <button
         type="button"
         onClick={() => onViewChange('chats')}
-        className="w-11 h-11 mb-2 rounded-2xl bg-[#14161a] border border-white/10 hover:border-white/20 transition-all flex items-center justify-center cursor-pointer group shadow-sm"
+        className="w-11 h-11 mb-2 rounded-2xl bg-[#14161f] border border-[#262836] hover:border-[#383b4e] transition-all flex items-center justify-center cursor-pointer group shadow-sm"
         title="nook — messaging"
       >
         <svg
@@ -81,15 +81,15 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
           aria-label="nook"
           className="group-hover:scale-105 transition-transform"
         >
-          <rect width="32" height="32" rx="9" fill="#ffffff" />
+          <rect width="32" height="32" rx="9" fill="#6956e5" />
           <path
             d="M10 23V9.5M10 15.5a6 6 0 0 1 12 0V19"
             fill="none"
-            stroke="#0b0c0e"
+            stroke="#ffffff"
             strokeWidth="3.4"
             strokeLinecap="round"
           />
-          <circle cx="22" cy="23.5" r="2.6" fill="#0b0c0e" />
+          <circle cx="22" cy="23.5" r="2.6" fill="#ffffff" />
         </svg>
       </button>
 
@@ -107,14 +107,14 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
               onClick={() => onViewChange(item.id)}
               className={`relative w-11 h-11 rounded-xl flex items-center justify-center transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-white/10 text-white font-medium shadow-sm'
-                  : 'text-white/45 hover:text-white hover:bg-white/5'
+                  ? 'bg-[#222434] text-white font-medium shadow-sm'
+                  : 'text-white/45 hover:text-white hover:bg-[#1a1b26]'
               }`}
             >
               {isActive && (
                 <motion.div
                   layoutId="activeNavIndicator"
-                  className="absolute left-0 w-1 h-6 rounded-r bg-white"
+                  className="absolute left-0 w-1 h-6 rounded-r bg-[#6956e5]"
                   transition={{ type: 'spring', stiffness: 450, damping: 35 }}
                 />
               )}
@@ -131,7 +131,7 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
         })}
 
         {/* Divider */}
-        <div className="w-8 h-px bg-white/10 my-1" />
+        <div className="w-8 h-px bg-[#232534] my-1" />
 
         {/* Favorites Quick Filter */}
         <button
@@ -139,7 +139,7 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
           aria-label="Favorites"
           title="Favorites"
           onClick={onOpenFavorites}
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-white/45 hover:text-amber-400 hover:bg-white/5 transition-colors cursor-pointer"
+          className="w-11 h-11 rounded-xl flex items-center justify-center text-white/45 hover:text-amber-400 hover:bg-[#1a1b26] transition-colors cursor-pointer"
         >
           <Star className="w-5 h-5" />
         </button>
@@ -147,7 +147,7 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
         {/* New Chat Action */}
         <Button
           size="icon"
-          className="mt-2 h-11 w-11 rounded-2xl bg-white hover:bg-neutral-200 text-[#08090a] shadow-sm font-bold cursor-pointer"
+          className="mt-2 h-11 w-11 rounded-2xl bg-[#6956e5] hover:bg-[#5b48d6] text-white shadow-sm font-bold cursor-pointer border border-transparent"
           title="New conversation"
           onClick={onNewMessage}
         >
@@ -161,7 +161,7 @@ export const NavigationRail: React.FC<NavigationRailProps> = ({
           type="button"
           onClick={() => onViewChange('profile')}
           title={`Profile (${currentUser.name})`}
-          className="p-1 rounded-full hover:ring-2 hover:ring-white/30 transition-all cursor-pointer"
+          className="p-1 rounded-full hover:ring-2 hover:ring-[#6956e5]/50 transition-all cursor-pointer"
         >
           <Avatar
             name={currentUser.name}

@@ -64,8 +64,8 @@ export const AddMembersDialog: React.FC<AddMembersDialogProps> = ({
                   onClick={() => toggleSelect(name)}
                   className={`w-full flex items-center justify-between p-2.5 rounded-xl border transition-colors cursor-pointer text-left ${
                     isSelected
-                      ? 'bg-white/10 border-white/20 text-white'
-                      : 'bg-[#121316] border-white/5 hover:border-white/10 text-white/80'
+                      ? 'bg-[#242636] border-[#383b54] text-white'
+                      : 'bg-[#12131a] border-[#222432] hover:border-[#323548] text-white/80'
                   }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
@@ -84,8 +84,8 @@ export const AddMembersDialog: React.FC<AddMembersDialogProps> = ({
                   <div
                     className={`w-4 h-4 rounded-md border flex items-center justify-center transition-colors ${
                       isSelected
-                        ? 'bg-white text-black border-white'
-                        : 'border-white/20'
+                        ? 'bg-[#6956e5] text-white border-[#6956e5]'
+                        : 'border-[#3b3e54]'
                     }`}
                   >
                     {isSelected && <Check className="w-3 h-3 stroke-[3]" />}

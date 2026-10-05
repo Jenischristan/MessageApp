@@ -94,9 +94,9 @@ export const ChatInput: React.FC<ChatInputProps> = ({
       <div className="max-w-4xl mx-auto flex flex-col">
         {/* Reply Quoted Preview */}
         {replyTarget && (
-          <div className="flex items-center justify-between gap-3 mb-2 px-3 py-2 rounded-xl bg-[#17191d] border-l-3 border-[#0b69c7] text-xs text-white/80 animate-in fade-in slide-in-from-bottom-1 duration-150">
+          <div className="flex items-center justify-between gap-3 mb-2 px-3 py-2 rounded-xl bg-[#171922] border-l-3 border-[#6956e5] text-xs text-white/80 animate-in fade-in slide-in-from-bottom-1 duration-150">
             <div className="min-w-0">
-              <span className="font-semibold text-[#38bdf8] block">
+              <span className="font-semibold text-[#caa6fc] block">
                 Replying to {replyTarget.who}
               </span>
               <p className="truncate text-white/60 text-[11px] mt-0.5">
@@ -106,7 +106,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
             <button
               type="button"
               onClick={onCancelReply}
-              className="p-1 rounded-lg hover:bg-white/10 text-white/60 hover:text-white"
+              className="p-1 rounded-lg hover:bg-[#232534] text-white/60 hover:text-white"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -114,7 +114,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
         )}
 
         {/* Input Bar */}
-        <div className="relative flex items-end gap-1.5 rounded-2xl bg-[#121316] border border-white/8 p-1.5 focus-within:border-white/20 transition-all shadow-md">
+        <div className="relative flex items-end gap-1.5 rounded-2xl bg-[#12131a] border border-[#242636] p-1.5 focus-within:border-[#6956e5]/60 focus-within:ring-1 focus-within:ring-[#6956e5]/30 transition-all shadow-md">
           {/* Emoji Picker Popover */}
           <EmojiPicker
             isOpen={isEmojiOpen}
@@ -158,7 +158,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
                 size="icon"
                 className={`h-9 w-9 rounded-xl transition-colors ${
                   isEmojiOpen
-                    ? 'text-white bg-white/10'
+                    ? 'text-white bg-[#242636]'
                     : 'text-white/50 hover:text-white'
                 }`}
                 title="Insert emoji"
@@ -185,7 +185,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
           {text.trim() ? (
             <Button
               size="icon"
-              className="h-9 w-9 rounded-xl bg-white hover:bg-neutral-200 text-[#08090a] shrink-0 font-bold shadow-sm"
+              className="h-9 w-9 rounded-xl bg-[#6956e5] hover:bg-[#5b48d6] text-white shrink-0 font-bold shadow-sm border border-transparent"
               onClick={handleSend}
               title="Send message (Enter)"
             >

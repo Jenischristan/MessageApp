@@ -51,7 +51,7 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
   return (
     <div className="h-full flex flex-col bg-[#0f1114] select-none">
       {/* Header */}
-      <div className="h-16 px-4 flex items-center justify-between border-b border-white/5 shrink-0">
+      <div className="h-16 px-4 flex items-center justify-between border-b border-[#202230] shrink-0">
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
@@ -75,7 +75,7 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
       </div>
 
       {/* Search Input */}
-      <div className="p-3 border-b border-white/5">
+      <div className="p-3 border-b border-[#202230]">
         <Input
           placeholder="Search contacts by name, handle, or bio…"
           value={query}
@@ -101,7 +101,7 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
                 {contacts.map((c) => (
                   <div
                     key={c.name}
-                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/[0.04] transition-colors group"
+                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#1a1c27] transition-colors group"
                   >
                     <button
                       type="button"

@@ -55,7 +55,7 @@ export const ForwardDialog: React.FC<ForwardDialogProps> = ({
                   onForwardTo(conv.id);
                   onClose();
                 }}
-                className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors text-left"
+                className="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#1a1c27] transition-colors text-left"
               >
                 <Avatar
                   name={conv.name}

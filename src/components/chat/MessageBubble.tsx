@@ -19,6 +19,13 @@ import {
 } from 'lucide-react';
 import { Message, UserProfile } from '../../types';
 import { Avatar } from '../common/Avatar';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from '../ui/dropdown-menu';
 import { PEOPLE } from '../../data/mockData';
 import { fireReactionConfetti } from '../../utils/confetti';
 import { playPopSound } from '../../utils/audio';
@@ -79,7 +86,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
   if (message.sys) {
     return (
       <div className="flex justify-center my-3 select-none">
-        <span className="text-[11px] font-medium text-white/50 bg-[#161720] border border-white/8 px-4 py-1 rounded-full shadow-sm">
+        <span className="text-[11px] font-medium text-white/50 bg-[#151722] border border-[#242636] px-4 py-1 rounded-full shadow-sm">
           {message.t}
         </span>
       </div>
@@ -90,7 +97,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
   if (message.del) {
     return (
       <div className={`flex my-2 ${message.me ? 'justify-end' : 'justify-start'}`}>
-        <div className="px-4 py-2.5 rounded-2xl bg-[#14151b] border border-white/6 text-xs italic text-white/40 select-none">
+        <div className="px-4 py-2.5 rounded-2xl bg-[#141520] border border-[#222432] text-xs italic text-white/40 select-none">
           This message was deleted
         </div>
       </div>
@@ -193,7 +200,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
           className={`relative rounded-2xl px-4 py-3 text-[14px] leading-relaxed break-words max-w-full shadow-sm transition-all ${
             isMe
               ? 'bg-[#ceb5ff] text-[#181228] font-medium rounded-br-[4px]'
-              : 'bg-[#1b1c24] text-[#eeeff1] border border-white/8 rounded-bl-[4px]'
+              : 'bg-[#1b1c24] text-[#eeeff1] border border-[#27293a] rounded-bl-[4px]'
           } ${!isFirstInGroup ? (isMe ? 'rounded-tr-[6px]' : 'rounded-tl-[6px]') : ''} ${
             message.pinned ? 'ring-2 ring-amber-400/60' : ''
           }`}
@@ -235,7 +242,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
               className={`mb-2.5 text-left block w-full rounded-xl border-l-2 border-current px-2.5 py-1.5 text-xs transition-colors cursor-pointer ${
                 isMe
                   ? 'bg-black/10 hover:bg-black/15 text-[#181228]'
-                  : 'bg-white/5 hover:bg-white/10 text-white/90'
+                  : 'bg-[#242636] hover:bg-[#2b2e40] text-white/90'
               }`}
             >
               <span className="font-bold block truncate">{message.reply.who}</span>
@@ -293,12 +300,12 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
               className={`flex items-center gap-3 p-2.5 rounded-xl mb-1.5 min-w-[210px] border ${
                 isMe
                   ? 'bg-black/10 border-black/10 text-[#181228]'
-                  : 'bg-white/5 border-white/10 text-white'
+                  : 'bg-[#181924] border-[#292c3d] text-white'
               }`}
             >
               <div
                 className={`w-9 h-9 rounded-lg grid place-items-center shrink-0 ${
-                  isMe ? 'bg-black/15 text-[#181228]' : 'bg-white/10 text-white'
+                  isMe ? 'bg-black/15 text-[#181228]' : 'bg-[#292c3d] text-white'
                 }`}
               >
                 <FileText className="w-4 h-4" />
@@ -332,7 +339,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
               className={`block rounded-xl p-3 mb-1 min-w-[220px] max-w-full border transition-all cursor-pointer ${
                 isMe
                   ? 'bg-black/10 border-black/15 hover:bg-black/15 text-[#181228]'
-                  : 'bg-[#14151a] border-white/10 hover:border-white/20 text-white'
+                  : 'bg-[#161722] border-[#282a3c] hover:border-[#383a52] text-white'
               }`}
             >
               <div className="flex items-center gap-1.5 text-[11px] opacity-75 mb-1 font-mono">
@@ -456,7 +463,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                   className={`text-xs inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 transition-all shadow-sm cursor-pointer ${
                     hasReacted
                       ? 'bg-[#caa6fc] text-[#181228] font-bold ring-1 ring-[#caa6fc]'
-                      : 'bg-[#1e1f28] text-white/80 hover:bg-[#272834] border border-white/10'
+                      : 'bg-[#1a1c27] text-white/80 hover:bg-[#242636] border border-[#292c3c]'
                   }`}
                 >
                   <span>{emoji}</span>
@@ -476,7 +483,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
         {isMe && (
           <span className="inline-flex items-center">
             {message.st === 'sending' && (
-              <span className="w-3 h-3 rounded-full border border-white/40 border-t-transparent animate-spin" />
+              <span className="w-3 h-3 rounded-full border border-[#caa6fc] border-t-transparent animate-spin" />
             )}
             {message.st === 'sent' && (
               <Check className="w-3.5 h-3.5 text-white/40" />
@@ -495,7 +502,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
       <div
         className={`opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-150 absolute -top-8 ${
           isMe ? 'right-2' : 'left-2'
-        } z-20 flex items-center gap-1 bg-[#1a1b24] border border-white/10 rounded-full px-2 py-0.5 shadow-xl backdrop-blur-md`}
+        } z-20 flex items-center gap-1 bg-[#161722] border border-[#282a3c] rounded-full px-2 py-0.5 shadow-xl backdrop-blur-md`}
       >
         {/* Quick Reactions */}
         {QUICK_EMOJIS.slice(0, 4).map((emoji) => (
@@ -509,101 +516,80 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
           </button>
         ))}
 
-        <div className="w-px h-3.5 bg-white/10 mx-0.5" />
+        <div className="w-px h-3.5 bg-[#282a3c] mx-0.5" />
 
         {/* Reply */}
         <button
           type="button"
           title="Reply"
           onClick={() => onReply(message)}
-          className="p-1 text-white/60 hover:text-white rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+          className="p-1 text-white/60 hover:text-white rounded-full hover:bg-[#232535] transition-colors cursor-pointer"
         >
           <CornerDownRight className="w-3.5 h-3.5" />
         </button>
 
-        {/* More Actions Dropdown Toggle */}
-        <div className="relative">
-          <button
-            type="button"
-            title="More actions"
-            onClick={() => setShowMenu(!showMenu)}
-            className="p-1 text-white/60 hover:text-white rounded-full hover:bg-white/10 transition-colors cursor-pointer"
-          >
-            <MoreHorizontal className="w-3.5 h-3.5" />
-          </button>
+        {/* More Actions Dropdown Toggle using shadcn DropdownMenu */}
+        <DropdownMenu open={showMenu} onOpenChange={setShowMenu}>
+          <DropdownMenuTrigger asChild>
+            <button
+              type="button"
+              title="More actions"
+              className="p-1 text-white/60 hover:text-white rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+            >
+              <MoreHorizontal className="w-3.5 h-3.5" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align={isMe ? 'end' : 'start'} className="w-44">
+            <DropdownMenuItem onClick={copyToClipboard}>
+              <Copy className="w-3.5 h-3.5 text-white/50" />
+              Copy text
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => {
+                onTogglePin(message);
+                setShowMenu(false);
+              }}
+            >
+              <Pin className="w-3.5 h-3.5 text-white/50" />
+              {message.pinned ? 'Unpin message' : 'Pin message'}
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => {
+                onForward(message);
+                setShowMenu(false);
+              }}
+            >
+              <Share2 className="w-3.5 h-3.5 text-white/50" />
+              Forward...
+            </DropdownMenuItem>
 
-          <AnimatePresence>
-            {showMenu && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: -4 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -4 }}
-                transition={{ duration: 0.12 }}
-                className={`absolute top-8 ${
-                  isMe ? 'right-0' : 'left-0'
-                } w-44 bg-[#1b1c26] border border-white/10 rounded-xl shadow-2xl py-1 z-30 text-xs`}
+            {!isMe && (
+              <DropdownMenuItem
+                onClick={() => {
+                  onReportMessage?.(message);
+                  setShowMenu(false);
+                }}
+                className="text-amber-400 focus:text-amber-300 focus:bg-amber-400/10"
               >
-                <button
-                  type="button"
-                  onClick={copyToClipboard}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-white/80 hover:bg-white/10 text-left cursor-pointer"
-                >
-                  <Copy className="w-3.5 h-3.5 text-white/50" />
-                  Copy text
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onTogglePin(message);
-                    setShowMenu(false);
-                  }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-white/80 hover:bg-white/10 text-left cursor-pointer"
-                >
-                  <Pin className="w-3.5 h-3.5 text-white/50" />
-                  {message.pinned ? 'Unpin message' : 'Pin message'}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onForward(message);
-                    setShowMenu(false);
-                  }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-white/80 hover:bg-white/10 text-left cursor-pointer"
-                >
-                  <Share2 className="w-3.5 h-3.5 text-white/50" />
-                  Forward...
-                </button>
-
-                {!isMe && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onReportMessage?.(message);
-                      setShowMenu(false);
-                    }}
-                    className="w-full flex items-center gap-2 px-3 py-2 text-amber-400/90 hover:bg-amber-400/10 text-left cursor-pointer"
-                  >
-                    <Flag className="w-3.5 h-3.5 text-amber-400" />
-                    Report message
-                  </button>
-                )}
-
-                <div className="h-px bg-white/10 my-1" />
-                <button
-                  type="button"
-                  onClick={() => {
-                    onDelete(message);
-                    setShowMenu(false);
-                  }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-red-400 hover:bg-red-500/10 text-left cursor-pointer"
-                >
-                  <Trash2 className="w-3.5 h-3.5" />
-                  Delete message
-                </button>
-              </motion.div>
+                <Flag className="w-3.5 h-3.5 text-amber-400" />
+                Report message
+              </DropdownMenuItem>
             )}
-          </AnimatePresence>
-        </div>
+
+            <DropdownMenuSeparator />
+
+            <DropdownMenuItem
+              onClick={() => {
+                onDelete(message);
+                setShowMenu(false);
+              }}
+              className="text-red-400 focus:text-red-300 focus:bg-red-500/10"
+            >
+              <Trash2 className="w-3.5 h-3.5 text-red-400" />
+              Delete message
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </motion.div>
   );

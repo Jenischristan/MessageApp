@@ -1,4 +1,10 @@
-import React from 'react';
+import * as React from 'react';
+import {
+  Avatar as ShadcnAvatar,
+  AvatarImage,
+  AvatarFallback,
+} from '../ui/avatar';
+import { cn } from '../../lib/utils';
 
 const AVATAR_PALETTES = [
   { bg: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', color: '#ffffff' },
@@ -9,7 +15,7 @@ const AVATAR_PALETTES = [
   { bg: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)', color: '#ffffff' },
 ];
 
-interface AvatarProps {
+export interface AvatarProps {
   name: string;
   size?: number;
   online?: boolean;
@@ -38,29 +44,30 @@ export const Avatar: React.FC<AvatarProps> = ({
   const indicatorSize = Math.max(9, Math.round(size * 0.28));
 
   return (
-    <span
-      className={`relative inline-flex shrink-0 items-center justify-center rounded-full font-semibold select-none leading-none shadow-sm transition-transform ${className}`}
+    <ShadcnAvatar
+      className={cn('relative inline-flex shrink-0 items-center justify-center rounded-full select-none shadow-sm transition-transform', className)}
       style={{
         width: size,
         height: size,
-        background: palette.bg,
-        color: palette.color,
-        fontSize: Math.max(9, Math.round(size * 0.38)),
       }}
-      aria-hidden="true"
     >
       {imgUrl ? (
-        <img
+        <AvatarImage
           src={imgUrl}
           alt={name}
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
+          className="rounded-full object-cover"
         />
-      ) : (
-        <span className="flex items-center justify-center leading-none tracking-tight">
-          {initials || '?'}
-        </span>
-      )}
+      ) : null}
+      <AvatarFallback
+        style={{
+          background: palette.bg,
+          color: palette.color,
+          fontSize: Math.max(9, Math.round(size * 0.38)),
+        }}
+        className="font-semibold tracking-tight"
+      >
+        {initials || '?'}
+      </AvatarFallback>
       {online && (
         <span
           title="Online"
@@ -71,6 +78,6 @@ export const Avatar: React.FC<AvatarProps> = ({
           }}
         />
       )}
-    </span>
+    </ShadcnAvatar>
   );
 };

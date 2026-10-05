@@ -1,8 +1,10 @@
-import React from 'react';
+import * as React from 'react';
+import { Badge as ShadcnBadge } from '../ui/badge';
+import { cn } from '../../lib/utils';
 
-interface BadgeProps {
+export interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'danger' | 'primary' | 'muted';
+  variant?: 'danger' | 'primary' | 'muted' | 'destructive' | 'secondary' | 'default' | 'purple';
   className?: string;
 }
 
@@ -11,17 +13,22 @@ export const Badge: React.FC<BadgeProps> = ({
   variant = 'danger',
   className = '',
 }) => {
-  const styles = {
-    danger: 'bg-[#e5484d] text-white',
-    primary: 'bg-white text-[#08090a]',
-    muted: 'bg-white/15 text-white/90',
-  }[variant];
+  const variantMap: Record<string, 'default' | 'secondary' | 'destructive' | 'outline' | 'purple'> = {
+    danger: 'destructive',
+    primary: 'default',
+    muted: 'secondary',
+    destructive: 'destructive',
+    secondary: 'secondary',
+    default: 'default',
+    purple: 'purple',
+  };
 
   return (
-    <span
-      className={`inline-flex min-w-5 h-5 items-center justify-center rounded-full px-1.5 text-[11px] font-semibold tabular-nums leading-none select-none shadow-sm ${styles} ${className}`}
+    <ShadcnBadge
+      variant={variantMap[variant] || 'default'}
+      className={cn('min-w-5 h-5 px-1.5 text-[11px] font-semibold leading-none shadow-sm', className)}
     >
       {children}
-    </span>
+    </ShadcnBadge>
   );
 };

@@ -70,7 +70,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           {messageSnippet && (
-            <div className="p-3 rounded-xl bg-white/5 border border-white/5 text-xs text-white/60 italic truncate">
+            <div className="p-3 rounded-xl bg-[#161722] border border-[#232536] text-xs text-white/60 italic truncate">
               &ldquo;{messageSnippet}&rdquo;
             </div>
           )}
@@ -91,16 +91,16 @@ export const ReportModal: React.FC<ReportModalProps> = ({
                     onClick={() => setSelectedReason(reason)}
                     className={`w-full flex items-center gap-3 p-2.5 rounded-xl border text-left text-xs transition-colors cursor-pointer ${
                       isSelected
-                        ? 'bg-white/10 border-white text-white font-medium'
-                        : 'bg-[#121316] border-white/5 hover:border-white/15 text-white/70'
+                        ? 'bg-[#242636] border-[#6956e5] text-white font-medium'
+                        : 'bg-[#12131a] border-[#222432] hover:border-[#323548] text-white/70'
                     }`}
                   >
                     <span
                       className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
-                        isSelected ? 'border-white' : 'border-white/30'
+                        isSelected ? 'border-[#6956e5]' : 'border-[#3a3d52]'
                       }`}
                     >
-                      {isSelected && <span className="w-2 h-2 rounded-full bg-white" />}
+                      {isSelected && <span className="w-2 h-2 rounded-full bg-[#6956e5]" />}
                     </span>
                     <span>{reason}</span>
                   </button>
@@ -122,7 +122,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
               placeholder="Provide any relevant details..."
               value={details}
               onChange={(e) => setDetails(e.target.value)}
-              className="w-full rounded-xl bg-[#121316] border border-white/10 p-2.5 text-xs text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 resize-none scr"
+              className="w-full rounded-xl bg-[#12131a] border border-[#262838] p-2.5 text-xs text-white placeholder:text-white/30 focus:outline-none focus:border-[#6956e5]/70 focus:ring-1 focus:ring-[#6956e5]/40 resize-none scr"
             />
           </div>
 

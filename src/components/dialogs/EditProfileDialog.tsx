@@ -40,7 +40,7 @@ export const EditProfileDialog: React.FC<EditProfileDialogProps> = ({
     >
       <div className="space-y-4">
         {/* Avatar customizer */}
-        <div className="flex items-center gap-4 p-3 rounded-2xl bg-[#121316] border border-white/5">
+        <div className="flex items-center gap-4 p-3 rounded-2xl bg-[#121316] border border-[#232536]">
           <Avatar
             name={formData.name || 'You'}
             size={56}
@@ -59,7 +59,7 @@ export const EditProfileDialog: React.FC<EditProfileDialogProps> = ({
                   onClick={() => setFormData({ ...formData, av: i })}
                   className={`w-6 h-6 rounded-full transition-transform ${
                     formData.av === i
-                      ? 'ring-2 ring-[#0b69c7] scale-110'
+                      ? 'ring-2 ring-[#6956e5] scale-110'
                       : 'hover:scale-105 opacity-70'
                   }`}
                 >

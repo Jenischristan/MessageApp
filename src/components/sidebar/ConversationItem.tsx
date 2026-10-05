@@ -60,8 +60,8 @@ export const ConversationItem: React.FC<ConversationItemProps> = ({
       aria-current={isActive ? 'true' : undefined}
       className={`w-full flex items-center gap-3 px-3 py-2.5 text-left rounded-xl transition-all cursor-pointer select-none ${
         isActive
-          ? 'bg-[#1c1d27] shadow-sm ring-1 ring-[#caa6fc]/25 border-l-[3px] border-[#caa6fc]'
-          : 'hover:bg-white/[0.04]'
+          ? 'bg-[#1b1c27] shadow-sm ring-1 ring-[#6956e5]/30 border-l-[3px] border-[#6956e5]'
+          : 'hover:bg-[#1a1c27] active:bg-[#1f2130]'
       }`}
     >
       {/* Avatar */}

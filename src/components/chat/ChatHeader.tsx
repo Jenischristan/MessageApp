@@ -13,6 +13,13 @@ import {
 } from 'lucide-react';
 import { Button } from '../common/Button';
 import { Avatar } from '../common/Avatar';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from '../ui/dropdown-menu';
 import { Conversation } from '../../types';
 import { PEOPLE } from '../../data/mockData';
 
@@ -83,7 +90,7 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
 
   return (
     <header
-      className="h-16 px-3 md:px-5 flex items-center justify-between border-b border-white/8 shrink-0 z-20 select-none"
+      className="h-16 px-3 md:px-5 flex items-center justify-between border-b border-[#202230] shrink-0 z-20 select-none"
       style={{ backgroundColor: '#000000' }}
     >
       {/* Left: Back & User Info */}
@@ -101,7 +108,7 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
         <button
           type="button"
           onClick={onOpenProfile}
-          className="flex items-center gap-3 text-left rounded-xl p-1 -m-1 hover:bg-white/[0.04] transition-colors min-w-0 cursor-pointer"
+          className="flex items-center gap-3 text-left rounded-xl p-1 -m-1 hover:bg-[#1a1c26] transition-colors min-w-0 cursor-pointer"
         >
           <Avatar
             name={conversation.name}
@@ -115,9 +122,6 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
               <h2 className="text-[15.5px] font-semibold text-white tracking-[-0.01em] truncate leading-tight">
                 {conversation.name}
               </h2>
-              {conversation.fav && (
-                <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 stroke-amber-400 shrink-0" />
-              )}
               {conversation.mute && (
                 <VolumeX className="w-3.5 h-3.5 text-white/40 shrink-0" />
               )}
@@ -135,7 +139,7 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
         <button
           type="button"
           onClick={onToggleFavorite}
-          className="h-9 w-9 rounded-xl flex items-center justify-center transition-colors hover:bg-white/[0.06] cursor-pointer"
+          className="h-9 w-9 rounded-xl flex items-center justify-center transition-colors hover:bg-[#1a1c26] cursor-pointer"
           title={conversation.fav ? 'Favorited' : 'Favorite'}
           aria-label="Toggle favorite"
         >
@@ -151,7 +155,7 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
         <button
           type="button"
           className={`h-9 w-9 rounded-xl flex items-center justify-center transition-colors cursor-pointer ${
-            isSearchOpen ? 'text-[#caa6fc] bg-[#221e33]' : 'text-white/60 hover:text-white hover:bg-white/[0.06]'
+            isSearchOpen ? 'text-[#caa6fc] bg-[#221e33]' : 'text-white/60 hover:text-white hover:bg-[#1a1c26]'
           }`}
           title="Search in conversation"
           onClick={onToggleSearch}
@@ -161,8 +165,8 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
 
         <button
           type="button"
-          className={`h-9 w-9 rounded-xl flex items-center justify-center transition-colors cursor-pointer ${
-            isDetailsOpen ? 'text-[#caa6fc] bg-[#221e33]' : 'text-white/60 hover:text-white hover:bg-white/[0.06]'
+          className={`hidden md:flex h-9 w-9 rounded-xl items-center justify-center transition-colors cursor-pointer ${
+            isDetailsOpen ? 'text-[#caa6fc] bg-[#221e33]' : 'text-white/60 hover:text-white hover:bg-[#1a1c26]'
           }`}
           title="Conversation details"
           onClick={onToggleDetails}
@@ -170,82 +174,74 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
           <Sidebar className="w-4 h-4" />
         </button>
 
-        {/* More Menu Dropdown */}
-        <div className="relative" ref={menuRef}>
-          <button
-            type="button"
-            className="h-9 w-9 rounded-xl flex items-center justify-center text-white/60 hover:text-white hover:bg-white/[0.06] transition-colors cursor-pointer"
-            title="More actions"
-            onClick={() => setShowMenu((prev) => !prev)}
-          >
-            <MoreVertical className="w-4 h-4" />
-          </button>
+        {/* More Menu Dropdown using shadcn DropdownMenu */}
+        <DropdownMenu open={showMenu} onOpenChange={setShowMenu}>
+          <DropdownMenuTrigger asChild>
+            <button
+              type="button"
+              className="h-9 w-9 rounded-xl flex items-center justify-center text-white/60 hover:text-white hover:bg-[#1a1c26] transition-colors cursor-pointer"
+              title="More actions"
+              aria-label="More options"
+            >
+              <MoreVertical className="w-4 h-4" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-52">
+            <DropdownMenuItem
+              onClick={() => {
+                setShowMenu(false);
+                onToggleSearch();
+              }}
+            >
+              <Search className="w-3.5 h-3.5 text-white/50" />
+              Find in conversation
+            </DropdownMenuItem>
 
-          {showMenu && (
-            <div className="absolute right-0 top-11 w-52 bg-[#16171d] border border-white/10 rounded-2xl shadow-2xl py-1.5 z-40 text-xs animate-in fade-in slide-in-from-top-1 duration-150">
-              <button
-                type="button"
+            {onToggleMute && (
+              <DropdownMenuItem
                 onClick={() => {
                   setShowMenu(false);
-                  onToggleSearch();
+                  onToggleMute();
                 }}
-                className="w-full flex items-center gap-2.5 px-3.5 py-2 text-white/80 hover:bg-white/10 text-left cursor-pointer"
               >
-                <Search className="w-3.5 h-3.5 text-white/50" />
-                Find in conversation
-              </button>
+                {conversation.mute ? (
+                  <>
+                    <Volume2 className="w-3.5 h-3.5 text-white/50" />
+                    Unmute notifications
+                  </>
+                ) : (
+                  <>
+                    <VolumeX className="w-3.5 h-3.5 text-white/50" />
+                    Mute notifications
+                  </>
+                )}
+              </DropdownMenuItem>
+            )}
 
-              {onToggleMute && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowMenu(false);
-                    onToggleMute();
-                  }}
-                  className="w-full flex items-center gap-2.5 px-3.5 py-2 text-white/80 hover:bg-white/10 text-left cursor-pointer"
-                >
-                  {conversation.mute ? (
-                    <>
-                      <Volume2 className="w-3.5 h-3.5 text-white/50" />
-                      Unmute notifications
-                    </>
-                  ) : (
-                    <>
-                      <VolumeX className="w-3.5 h-3.5 text-white/50" />
-                      Mute notifications
-                    </>
-                  )}
-                </button>
-              )}
+            <DropdownMenuItem
+              onClick={() => {
+                setShowMenu(false);
+                onOpenProfile();
+              }}
+            >
+              <Share2 className="w-3.5 h-3.5 text-white/50" />
+              View contact info
+            </DropdownMenuItem>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setShowMenu(false);
-                  onOpenProfile();
-                }}
-                className="w-full flex items-center gap-2.5 px-3.5 py-2 text-white/80 hover:bg-white/10 text-left cursor-pointer"
-              >
-                <Share2 className="w-3.5 h-3.5 text-white/50" />
-                View contact info
-              </button>
+            <DropdownMenuSeparator />
 
-              <div className="h-px bg-white/10 my-1" />
-
-              <button
-                type="button"
-                onClick={() => {
-                  setShowMenu(false);
-                  onReportContact();
-                }}
-                className="w-full flex items-center gap-2.5 px-3.5 py-2 text-amber-400 hover:bg-amber-400/10 text-left cursor-pointer"
-              >
-                <Flag className="w-3.5 h-3.5 text-amber-400" />
-                Report {isGroup ? 'Group' : 'Contact'}
-              </button>
-            </div>
-          )}
-        </div>
+            <DropdownMenuItem
+              onClick={() => {
+                setShowMenu(false);
+                onReportContact();
+              }}
+              className="text-amber-400 focus:text-amber-300 focus:bg-amber-400/10"
+            >
+              <Flag className="w-3.5 h-3.5 text-amber-400" />
+              Report {isGroup ? 'Group' : 'Contact'}
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   );

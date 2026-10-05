@@ -329,7 +329,7 @@ export default function App() {
         )}
 
         {currentView === 'contacts' && (
-          <div className="w-full md:w-[320px] lg:w-[340px] h-full border-r border-white/8">
+          <div className="w-full md:w-[320px] lg:w-[340px] h-full border-r border-[#222432]">
             <ContactsView
               onBack={() => setCurrentView('chats')}
               onMessageContact={handleMessageContact}
@@ -340,7 +340,7 @@ export default function App() {
         )}
 
         {currentView === 'notifs' && (
-          <div className="w-full md:w-[320px] lg:w-[340px] h-full border-r border-white/8">
+          <div className="w-full md:w-[320px] lg:w-[340px] h-full border-r border-[#222432]">
             <NotificationsView
               notifications={notifications}
               onBack={() => setCurrentView('chats')}
@@ -361,7 +361,7 @@ export default function App() {
         )}
 
         {currentView === 'profile' && (
-          <div className="w-full md:w-[320px] lg:w-[340px] h-full border-r border-white/8">
+          <div className="w-full md:w-[320px] lg:w-[340px] h-full border-r border-[#222432]">
             <ProfileView
               currentUser={currentUser}
               onBack={() => setCurrentView('chats')}
@@ -377,7 +377,7 @@ export default function App() {
         )}
 
         {currentView === 'settings' && (
-          <div className="w-full md:w-[320px] lg:w-[340px] h-full border-r border-white/8">
+          <div className="w-full md:w-[320px] lg:w-[340px] h-full border-r border-[#222432]">
             <SettingsView
               settings={settings}
               currentUser={currentUser}
@@ -423,16 +423,16 @@ export default function App() {
           />
         ) : (
           <div className="h-full flex flex-col items-center justify-center p-8 text-center select-none text-white/50 bg-[#08090a]">
-            <div className="w-16 h-16 rounded-3xl bg-[#121316] border border-white/10 flex items-center justify-center text-white/40 mb-4 shadow-md">
+            <div className="w-16 h-16 rounded-3xl bg-[#121318] border border-[#262836] flex items-center justify-center text-white/40 mb-4 shadow-md">
               <svg width={32} height={32} viewBox="0 0 32 32" fill="none">
-                <rect width="32" height="32" rx="9" fill="#ffffff" />
+                <rect width="32" height="32" rx="9" fill="#6956e5" />
                 <path
                   d="M10 23V9.5M10 15.5a6 6 0 0 1 12 0V19"
-                  stroke="#0b0c0e"
+                  stroke="#ffffff"
                   strokeWidth="3.4"
                   strokeLinecap="round"
                 />
-                <circle cx="22" cy="23.5" r="2.6" fill="#0b0c0e" />
+                <circle cx="22" cy="23.5" r="2.6" fill="#ffffff" />
               </svg>
             </div>
             <h3 className="text-base font-semibold text-white/90">
@@ -440,7 +440,7 @@ export default function App() {
             </h3>
             <p className="text-xs text-white/40 mt-1 max-w-xs leading-relaxed">
               Select a conversation from the sidebar or press{' '}
-              <kbd className="px-1.5 py-0.5 rounded bg-white/10 font-mono text-[11px] text-white">
+              <kbd className="px-1.5 py-0.5 rounded bg-[#222432] border border-[#2e3042] font-mono text-[11px] text-white">
                 Cmd+K
               </kbd>{' '}
               to start a new message or group.
@@ -615,7 +615,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 8, scale: 0.95 }}
               transition={{ type: 'spring', damping: 25, stiffness: 400 }}
-              className="px-4 py-2 rounded-full bg-white text-[#08090a] text-xs font-semibold shadow-xl flex items-center gap-2"
+              className="px-4 py-2 rounded-full bg-[#6956e5] text-white text-xs font-semibold shadow-md border border-[#8374ff]/30 flex items-center gap-2"
             >
               <span>{toastMessage}</span>
             </motion.div>

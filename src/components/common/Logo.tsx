@@ -21,19 +21,19 @@ export const Logo: React.FC<LogoProps> = ({
         aria-label="nook"
         className="shrink-0 drop-shadow-sm"
       >
-        <rect width="32" height="32" rx="9" fill="#ffffff" />
+        <rect width="32" height="32" rx="9" fill="#6956e5" />
         <path
           d="M10 23V9.5M10 15.5a6 6 0 0 1 12 0V19"
           fill="none"
-          stroke="#0b0c0e"
+          stroke="#ffffff"
           strokeWidth="3.4"
           strokeLinecap="round"
         />
-        <circle cx="22" cy="23.5" r="2.6" fill="#0b0c0e" />
+        <circle cx="22" cy="23.5" r="2.6" fill="#ffffff" />
       </svg>
       {showWordmark && (
         <span className="text-xl font-bold tracking-tight text-white flex items-baseline">
-          nook<span className="text-[#0b69c7]">.</span>
+          nook<span className="text-[#6956e5]">.</span>
         </span>
       )}
     </div>

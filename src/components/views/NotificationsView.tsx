@@ -54,7 +54,7 @@ export const NotificationsView: React.FC<NotificationsViewProps> = ({
   return (
     <div className="h-full flex flex-col bg-[#0f1114] select-none">
       {/* Header */}
-      <div className="h-16 px-4 flex items-center justify-between border-b border-white/5 shrink-0">
+      <div className="h-16 px-4 flex items-center justify-between border-b border-[#202230] shrink-0">
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
@@ -96,7 +96,7 @@ export const NotificationsView: React.FC<NotificationsViewProps> = ({
             </p>
           </div>
         ) : (
-          <div className="rounded-2xl bg-[#14161a] border border-white/5 divide-y divide-white/5 overflow-hidden">
+          <div className="rounded-2xl bg-[#14161a] border border-[#232536] divide-y divide-[#232536] overflow-hidden">
             <AnimatePresence initial={false}>
               {notifications.map((n) => (
                 <motion.div
@@ -106,7 +106,7 @@ export const NotificationsView: React.FC<NotificationsViewProps> = ({
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.18 }}
-                  className="flex items-center justify-between p-3.5 hover:bg-white/[0.03] transition-colors group"
+                  className="flex items-center justify-between p-3.5 hover:bg-[#1a1c27] transition-colors group"
                 >
                   <div
                     onClick={() => n.cid && onOpenConversation?.(n.cid)}

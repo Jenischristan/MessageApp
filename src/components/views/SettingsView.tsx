@@ -45,7 +45,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   return (
     <div className="h-full flex flex-col bg-[#0f1114] select-none">
       {/* Header */}
-      <div className="h-16 px-4 flex items-center justify-between border-b border-white/5 shrink-0">
+      <div className="h-16 px-4 flex items-center justify-between border-b border-[#202230] shrink-0">
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
@@ -71,7 +71,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <Lock className="w-3.5 h-3.5" />
             Privacy & Visibility
           </span>
-          <div className="rounded-2xl bg-[#14161a] border border-white/5 divide-y divide-white/5 overflow-hidden">
+          <div className="rounded-2xl bg-[#14161a] border border-[#232536] divide-y divide-[#232536] overflow-hidden">
             <div className="flex items-center justify-between p-3.5">
               <div>
                 <p className="text-sm font-medium text-white">Last Seen Timestamp</p>
@@ -111,7 +111,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <button
               type="button"
               onClick={onOpenBlockedUsers}
-              className="w-full flex items-center justify-between p-3.5 hover:bg-white/[0.04] transition-colors text-left"
+              className="w-full flex items-center justify-between p-3.5 hover:bg-[#1a1c27] transition-colors text-left"
             >
               <div>
                 <p className="text-sm font-medium text-white">Blocked Contacts</p>
@@ -128,7 +128,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <Bell className="w-3.5 h-3.5" />
             Notifications & Sounds
           </span>
-          <div className="rounded-2xl bg-[#14161a] border border-white/5 divide-y divide-white/5 overflow-hidden">
+          <div className="rounded-2xl bg-[#14161a] border border-[#232536] divide-y divide-[#232536] overflow-hidden">
             <div className="flex items-center justify-between p-3.5">
               <div>
                 <p className="text-sm font-medium text-white">Message Notifications</p>
@@ -173,7 +173,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <Shield className="w-3.5 h-3.5" />
             Chat Preferences
           </span>
-          <div className="rounded-2xl bg-[#14161a] border border-white/5 divide-y divide-white/5 overflow-hidden">
+          <div className="rounded-2xl bg-[#14161a] border border-[#232536] divide-y divide-[#232536] overflow-hidden">
             <div className="flex items-center justify-between p-3.5">
               <div>
                 <p className="text-sm font-medium text-white">Enter to Send</p>
@@ -206,7 +206,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <Database className="w-3.5 h-3.5" />
             Storage & Sessions
           </span>
-          <div className="rounded-2xl bg-[#14161a] border border-white/5 divide-y divide-white/5 overflow-hidden">
+          <div className="rounded-2xl bg-[#14161a] border border-[#232536] divide-y divide-[#232536] overflow-hidden">
             <div className="flex items-center justify-between p-3.5">
               <div>
                 <p className="text-sm font-medium text-white">Storage Usage</p>
@@ -226,7 +226,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <button
               type="button"
               onClick={onOpenActiveSessions}
-              className="w-full flex items-center justify-between p-3.5 hover:bg-white/[0.04] transition-colors text-left"
+              className="w-full flex items-center justify-between p-3.5 hover:bg-[#1a1c27] transition-colors text-left"
             >
               <div>
                 <p className="text-sm font-medium text-white">Active Sessions</p>
@@ -239,7 +239,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
 
         {/* Section 5: About & Log Out */}
         <div className="space-y-3 pt-2">
-          <div className="rounded-2xl bg-[#14161a] border border-white/5 p-3.5 flex items-center justify-between text-xs">
+          <div className="rounded-2xl bg-[#14161a] border border-[#232536] p-3.5 flex items-center justify-between text-xs">
             <div className="flex items-center gap-2 text-white/50">
               <Info className="w-4 h-4" />
               <span>nook build 1.4.0 — high-fidelity messaging</span>

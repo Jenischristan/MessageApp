@@ -73,7 +73,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                 onSelectView('profile');
                 onClose();
               }}
-              className="flex items-center gap-3 p-3 mt-4 rounded-xl bg-white/[0.03] border border-white/5 cursor-pointer hover:bg-white/5 transition-colors"
+              className="flex items-center gap-3 p-3 mt-4 rounded-xl bg-[#13141f] border border-[#232536] cursor-pointer hover:bg-[#1a1c29] transition-colors"
             >
               <Avatar
                 name={currentUser.name}
@@ -101,8 +101,8 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                 }}
                 className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   currentView === 'chats'
-                    ? 'bg-[#0b69c7]/15 text-[#3b9bff]'
-                    : 'text-white/70 hover:bg-white/5'
+                    ? 'bg-[#6956e5]/20 text-[#caa6fc] border border-[#6956e5]/30'
+                    : 'text-white/70 hover:bg-[#1a1c29]'
                 }`}
               >
                 <span className="flex items-center gap-3">
@@ -110,7 +110,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                   Chats
                 </span>
                 {unreadChats > 0 && (
-                  <span className="px-1.5 py-0.2 rounded-full bg-[#0b69c7] text-white text-[11px] font-bold">
+                  <span className="px-1.5 py-0.2 rounded-full bg-[#6956e5] text-white text-[11px] font-bold">
                     {unreadChats}
                   </span>
                 )}
@@ -124,8 +124,8 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                 }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   currentView === 'contacts'
-                    ? 'bg-[#0b69c7]/15 text-[#3b9bff]'
-                    : 'text-white/70 hover:bg-white/5'
+                    ? 'bg-[#6956e5]/20 text-[#caa6fc] border border-[#6956e5]/30'
+                    : 'text-white/70 hover:bg-[#1a1c29]'
                 }`}
               >
                 <Users className="w-4 h-4" />
@@ -140,8 +140,8 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                 }}
                 className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   currentView === 'notifs'
-                    ? 'bg-[#0b69c7]/15 text-[#3b9bff]'
-                    : 'text-white/70 hover:bg-white/5'
+                    ? 'bg-[#6956e5]/20 text-[#caa6fc] border border-[#6956e5]/30'
+                    : 'text-white/70 hover:bg-[#1a1c29]'
                 }`}
               >
                 <span className="flex items-center gap-3">
@@ -163,8 +163,8 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                 }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   currentView === 'profile'
-                    ? 'bg-[#0b69c7]/15 text-[#3b9bff]'
-                    : 'text-white/70 hover:bg-white/5'
+                    ? 'bg-[#6956e5]/20 text-[#caa6fc] border border-[#6956e5]/30'
+                    : 'text-white/70 hover:bg-[#1a1c29]'
                 }`}
               >
                 <User className="w-4 h-4" />
@@ -179,8 +179,8 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
                 }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   currentView === 'settings'
-                    ? 'bg-[#0b69c7]/15 text-[#3b9bff]'
-                    : 'text-white/70 hover:bg-white/5'
+                    ? 'bg-[#6956e5]/20 text-[#caa6fc] border border-[#6956e5]/30'
+                    : 'text-white/70 hover:bg-[#1a1c29]'
                 }`}
               >
                 <Settings className="w-4 h-4" />
@@ -189,7 +189,7 @@ export const MobileNavDrawer: React.FC<MobileNavDrawerProps> = ({
             </div>
 
             {/* Logout */}
-            <div className="pt-4 border-t border-white/5">
+            <div className="pt-4 border-t border-[#232536]">
               <button
                 type="button"
                 onClick={() => {

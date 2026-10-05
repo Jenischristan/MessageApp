@@ -58,9 +58,9 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ duration: 0.15 }}
-          className="absolute bottom-14 left-2 z-40 w-72 rounded-2xl bg-[#17191d] border border-white/10 shadow-2xl p-3 flex flex-col gap-2.5 backdrop-blur-md"
+          className="absolute bottom-14 left-2 z-40 w-72 rounded-2xl bg-[#151722] border border-[#262838] shadow-2xl p-3 flex flex-col gap-2.5 backdrop-blur-md"
         >
-          <div className="flex items-center justify-between pb-1 border-b border-white/5">
+          <div className="flex items-center justify-between pb-1 border-b border-[#232536]">
             <span className="text-xs font-semibold text-white/70">Emojis</span>
             <span className="text-[10px] text-white/40">Tap to insert</span>
           </div>
@@ -79,7 +79,7 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({
                       onClick={() => {
                         onSelect(emoji);
                       }}
-                      className="h-8 w-8 flex items-center justify-center rounded-lg text-lg hover:bg-white/10 active:scale-90 transition-all select-none"
+                      className="h-8 w-8 flex items-center justify-center rounded-lg text-lg hover:bg-[#242636] active:scale-90 transition-all select-none"
                     >
                       {emoji}
                     </button>

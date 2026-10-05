@@ -43,7 +43,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  scrollbar-color: #2b2d3d transparent;
 }
 
 .scr::-webkit-scrollbar {
@@ -55,12 +55,12 @@
 }
 
 .scr::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #2b2d3d;
   border-radius: 9999px;
 }
 
 .scr::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: #3d4056;
 }
 
 .nsb {
@@ -103,7 +103,7 @@
 }
 
 .skeleton-shimmer {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.04) 75%);
+  background: linear-gradient(90deg, #1c1d27 25%, #2a2c3a 50%, #1c1d27 75%);
   background-size: 200% 100%;
   animation: shimmer 1.8s infinite ease-in-out;
 }

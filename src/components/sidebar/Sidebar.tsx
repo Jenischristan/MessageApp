@@ -101,7 +101,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside
       aria-label="Conversations list"
-      className="relative flex flex-col h-full w-full md:w-[320px] lg:w-[340px] shrink-0 bg-[#0f1114] border-r border-white/5 select-none"
+      className="relative flex flex-col h-full w-full md:w-[320px] lg:w-[340px] shrink-0 bg-[#0f1114] border-r border-[#222432] select-none"
     >
       {/* Search Header */}
       <div className="flex items-center gap-2 px-3 pt-3.5 pb-2">
@@ -252,7 +252,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
             {/* Message Body Search Hits */}
             {messageSearchHits.length > 0 && (
-              <div className="pt-2 border-t border-white/5">
+              <div className="pt-2 border-t border-[#222432]">
                 <span className="px-3 text-[11px] font-semibold tracking-wider text-white/40 uppercase block mb-1.5">
                   Matching Messages
                 </span>
@@ -262,7 +262,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       key={idx}
                       type="button"
                       onClick={() => onSelectConversation(hit.conversation.id)}
-                      className="w-full text-left p-2.5 rounded-xl hover:bg-white/5 transition-colors"
+                      className="w-full text-left p-2.5 rounded-xl hover:bg-[#1a1c26] transition-colors"
                     >
                       <p className="text-xs font-semibold text-white truncate">
                         {hit.conversation.name}
@@ -282,7 +282,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Floating Action Button on Mobile */}
       <Button
         size="icon"
-        className="md:hidden absolute right-4 bottom-5 h-12 w-12 rounded-2xl bg-white hover:bg-neutral-200 text-[#08090a] shadow-xl font-bold cursor-pointer"
+        className="md:hidden absolute right-4 bottom-5 h-12 w-12 rounded-2xl bg-[#6956e5] hover:bg-[#5b48d6] text-white shadow-md font-bold cursor-pointer border border-transparent"
         aria-label="New conversation"
         onClick={onOpenNewChat}
       >

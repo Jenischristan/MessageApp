@@ -166,7 +166,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
 
         {/* Shared items tabs */}
         {dmConversation && (
-          <div className="space-y-2 pt-2 border-t border-white/5">
+          <div className="space-y-2 pt-2 border-t border-[#232536]">
             <span className="text-xs font-semibold text-white/50 uppercase tracking-wider block">
               Shared in chat
             </span>
@@ -190,7 +190,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                         key={m.id}
                         type="button"
                         onClick={() => onOpenImage(m.v, m.imgUrl, m.t)}
-                        className="aspect-[4/3] rounded-lg overflow-hidden border border-white/10 hover:border-white/30 transition-all hover:scale-[1.02] cursor-pointer"
+                        className="aspect-[4/3] rounded-lg overflow-hidden border border-[#282a3c] hover:border-[#3d405a] transition-all hover:scale-[1.02] cursor-pointer"
                         style={{
                           background: `linear-gradient(${120 + (m.v || 0) * 40}deg, #1d1f26, #363945)`,
                         }}
@@ -222,7 +222,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                     {docsList.map((m) => (
                       <div
                         key={m.id}
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 border border-white/5 text-left"
+                        className="flex items-center justify-between p-2 rounded-xl bg-[#161722] border border-[#232536] text-left"
                       >
                         <div className="flex items-center gap-2 min-w-0">
                           <FileText className="w-4 h-4 text-white/80 shrink-0" />
@@ -259,7 +259,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                         href={`https://${m.link?.url}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 p-2 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-all text-left cursor-pointer"
+                        className="flex items-center gap-2 p-2 rounded-xl bg-[#161722] border border-[#232536] hover:border-[#383a52] transition-all text-left cursor-pointer"
                       >
                         <ExternalLink className="w-3.5 h-3.5 text-white/50 shrink-0" />
                         <div className="min-w-0 flex-1">
