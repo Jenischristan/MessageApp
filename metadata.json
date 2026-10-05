@@ -1,0 +1,6 @@
+{
+  "name": "nook — quiet messaging",
+  "description": "Fast, focused messaging without the noise. Private, encrypted conversations, rich media sharing, and fluid real-time communication.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
